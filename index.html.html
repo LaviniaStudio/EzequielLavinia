@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ezequiel Lavinia — Especialista en Comunicación Digital & SEO</title>
+  <meta name="description" content="Especialista en Comunicación Digital, SEO/GEO/AEO, Contenidos y Educación. E-commerce & Multimedia. City Bell, La Plata, Argentina.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #4f8ef7;
+      --red: #f74f4f;
+      --blue-dim: rgba(79,142,247,0.15);
+      --red-dim: rgba(247,79,79,0.15);
+      --bg: #06060a;
+      --bg2: #0d0d14;
+      --text: #e8e8f0;
+      --muted: #888899;
+      --border: rgba(255,255,255,0.07);
+      --glow-blue: 0 0 40px rgba(79,142,247,0.35);
+      --glow-red: 0 0 40px rgba(247,79,79,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* CURSOR PERSONALIZADO (DESKTOP) */
+    @media (min-width: 901px) {
+      body { cursor: none; }
+      .cursor {
+        position: fixed;
+        width: 12px; height: 12px;
+        border-radius: 50%;
+        background: var(--blue);
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s, background 0.3s;
+        mix-blend-mode: screen;
+      }
+      .cursor-ring {
+        position: fixed;
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(79,142,247,0.5);
+        pointer-events: none;
+        z-index: 9998;
+        transition: transform 0.25s ease, width 0.2s, height 0.2s, border-color 0.3s;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .cursor, .cursor-ring { display: none !important; }
+    }
+
+    /* TEXTURA DE RUIDO DE FONDO */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(6,6,10,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* SECCIÓN HERO OPTIMIZADA */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 60px 140px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--blue);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(65px, 8.5vw, 125px);
+      line-height: 0.9;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .h1-name-1 { color: var(--text); display: block; }
+    .h1-name-2 {
+      background: linear-gradient(90deg, var(--blue) 0%, var(--red) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 24px 0 40px;
+      letter-spacing: 0.3px;
+    }
+    .hero-subtitle strong { color: var(--text); font-weight: 500; }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px; /* Espacio para que las estadísticas no se superpongan */
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--blue), #7b6ef7);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow-blue);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 32px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: rgba(247,79,79,0.5);
+      transform: translateY(-2px);
+    }
+
+    /* BARRA DE ESTADÍSTICAS CONTROLADA */
+    .stats-bar {
+      display: flex;
+      gap: 48px;
+      margin-top: auto; /* Se empuja orgánicamente al fondo del contenedor */
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--blue), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* LADO DERECHO - CONTENEDOR SEGURO DE FOTO */
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .hero-photo-wrap {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    
+    /* Degradados corregidos de fusión */
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--bg) 0%,
+        transparent 25%,
+        transparent 75%,
+        var(--bg) 100%
+      );
+      z-index: 1;
+    }
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    /* Blobs de brillo ambiente */
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-blue {
+      width: 450px; height: 450px;
+      background: rgba(79,142,247,0.25);
+      top: 15%; right: -100px;
+      animation: float1 8s ease-in-out infinite;
+    }
+    .glow-red {
+      width: 400px; height: 400px;
+      background: rgba(247,79,79,0.22);
+      bottom: 15%; left: -80px;
+      animation: float2 10s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(25px)} }
+
+    /* MAQUETACIÓN GENERAL SECCIONES */
+    section {
+      position: relative;
+      z-index: 2;
+      padding: 120px 60px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--blue);
+      letter-spacing: 2px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      letter-spacing: 2px;
+      color: var(--text);
+      line-height: 1;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* SOBRE MÍ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text {
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+    .about-text strong { color: var(--text); font-weight: 500; }
+    .about-text p + p { margin-top: 22px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .skill-chip {
+      padding: 12px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      transition: all 0.3s ease;
+    }
+    .skill-chip:hover {
+      border-color: rgba(79,142,247,0.4);
+      color: var(--blue);
+      background: var(--blue-dim);
+    }
+
+    /* EXPERIENCIA */
+    .exp-list { display: flex; flex-direction: column; gap: 4px; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      transition: border-color 0.3s;
+    }
+    .exp-item:hover { border-color: rgba(79,142,247,0.3); }
+
+    .exp-meta {
+      padding: 32px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .exp-years {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .exp-company {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .exp-body { padding: 32px; }
+    .exp-role {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 1px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .exp-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* HERRAMIENTAS - MARQUESINAS */
+    .tools-section { background: var(--bg2); padding: 50px 0; overflow: hidden; }
+    .tools-marquee {
+      display: flex;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+      margin-bottom: 4px;
+    }
+    .tools-marquee2 { animation: marquee2 28s linear infinite; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes marquee2 { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+    
+    .tool-tag {
+      padding: 12px 28px;
+      border: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+    .tool-tag.blue { color: var(--blue); border-color: rgba(79,142,247,0.25); }
+    .tool-tag.red { color: var(--red); border-color: rgba(247,79,79,0.25); }
+
+    /* EDUCACIÓN */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .edu-card {
+      padding: 36px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--blue), var(--red));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .edu-card:hover { border-color: rgba(79,142,247,0.3); transform: translateX(4px); }
+    .edu-card:hover::before { opacity: 1; }
+    .edu-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .edu-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .edu-inst { font-size: 13px; color: var(--muted); }
+
+    /* PREMIOS */
+    .awards-list { display: flex; flex-direction: column; gap: 4px; }
+    .award-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 26px 36px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+    }
+    .award-icon { font-size: 28px; flex-shrink: 0; }
+    .award-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .award-text strong { color: var(--text); }
+
+    /* CONTACTO */
+    .contact-section {
+      text-align: center;
+      padding: 140px 60px;
+    }
+    .contact-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(55px, 8.5vw, 115px);
+      letter-spacing: -1px;
+      line-height: 0.9;
+      margin-bottom: 40px;
+    }
+    .contact-big span {
+      background: linear-gradient(90deg, var(--blue), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .contact-link:hover { color: var(--blue); border-color: rgba(79,142,247,0.4); }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 60px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    /* FADE IN ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE & ADAPTACIÓN COMPACTA */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 120px 24px 40px; min-height: auto; }
+      .hero-right { height: 65vh; min-height: 450px; }
+      .hero-photo-wrap { position: relative; height: 100%; }
+      .stats-bar { gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+      section { padding: 80px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-meta { border-right: none; border-bottom: 1px solid var(--border); }
+      .edu-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 30px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <a href="#" class="nav-logo">EZE LAVINIA</a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO PRINCIPAL -->
+  <section class="hero" style="padding:0;">
+    <div class="glow-blob glow-blue"></div>
+    <div class="glow-blob glow-red"></div>
+
+    <div class="hero-left">
+      <div class="hero-tag">Especialista en Comunicación Digital</div>
+      <h1>
+        <span class="h1-name-1">EZEQUIEL</span>
+        <span class="h1-name-2">LAVINIA</span>
+      </h1>
+      <p class="hero-subtitle">
+        <strong>SEO / GEO / AEO · E-commerce · Contenidos · Educación</strong><br>
+        Llevo ideas al top de Google, construyo marcas que la IA recomienda, y diseño experiencias digitales de alto impacto. Desde La Plata para el mundo.
+      </p>
+      
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Hablemos
+        </a>
+        <a href="https://ezelavinia.my.canva.site/" target="_blank" class="btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver Portfolio
+        </a>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num">+4500</div>
+          <div class="stat-label">Ventas e-commerce</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">+14</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">#1</div>
+          <div class="stat-label">Top Rank Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <!-- Nombre de tu archivo modificado exactamente a Foto_Eze -->
+        <img src="Foto_Eze" alt="Ezequiel Lavinia">
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <div class="section-header fade-in">
+      <span class="section-num">01</span>
+      <h2 class="section-title">SOBRE MÍ</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>Soy <strong>Licenciado en Comunicación Social (UNQ)</strong> y <strong>Profesor de Comunicación Social</strong> con más de 14 años de trayectoria en medios, educación y el universo digital.</p>
+        <p>Fundé <strong>TuCajaMisteriosa.com®</strong>, el e-commerce líder de Mystery Boxes en Argentina, donde desarrollé integraciones de <strong>SEO/GEO/AEO</strong> avanzadas hasta consolidar las primeras posiciones de indexación en Google y captar recomendaciones directas de modelos de IA como ChatGPT y Gemini mediante optimización de microdatos y esquemas semánticos complejos.</p>
+        <p>También diseño e implemento <strong>landing pages y sitios web estructurados en HTML puro</strong> de alta velocidad: código optimizado para conversiones reales, accesibilidad nativa y excelente performance en Core Web Vitals.</p>
+        <p>Actualmente balanceo mi pasión consultora con la docencia universitaria en la <strong>UCALP</strong> y el trabajo estratégico para marcas dispuestas a destacar en el ecosistema digital.</p>
+      </div>
+      <div class="fade-in">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:16px;">Habilidades Clave</div>
+        <div class="skills-grid">
+          <div class="skill-chip">SEO On/Off-Page</div>
+          <div class="skill-chip">GEO & AEO Specialist</div>
+          <div class="skill-chip">Copywriting Estratégico</div>
+          <div class="skill-chip">Storytelling Transmedia</div>
+          <div class="skill-chip">E-commerce Growth</div>
+          <div class="skill-chip">Community Mgmt</div>
+          <div class="skill-chip">Email Marketing Automation</div>
+          <div class="skill-chip">Meta Ads Optimization</div>
+          <div class="skill-chip">Diseño Gráfico Funcional</div>
+          <div class="skill-chip">Edición de Video Digital</div>
+          <div class="skill-chip">Guion Audiovisual</div>
+          <div class="skill-chip">Docencia Universitaria</div>
+          <div class="skill-chip">Landing Pages HTML / CSS</div>
+          <div class="skill-chip">Schema Markup Avanzado</div>
+          <div class="skill-chip">Social Listening</div>
+          <div class="skill-chip">Redacción Periodística</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUESINA DE HERRAMIENTAS -->
+  <div class="tools-section">
+    <div class="tools-marquee">
+      <div class="tool-tag blue">SEMrush</div>
+      <div class="tool-tag">Google Search Console</div>
+      <div class="tool-tag red">GA4</div>
+      <div class="tool-tag">Google Looker Studio</div>
+      <div class="tool-tag blue">Meta Ads</div>
+      <div class="tool-tag">Google Merchant Center</div>
+      <div class="tool-tag red">Adobe Premiere Pro</div>
+      <div class="tool-tag">Photoshop</div>
+      <div class="tool-tag blue">Illustrator</div>
+      <div class="tool-tag">Canva Pro</div>
+      <div class="tool-tag red">Claude AI</div>
+      <div class="tool-tag">Page Speed / CWV</div>
+      <!-- Loop -->
+      <div class="tool-tag blue">SEMrush</div>
+      <div class="tool-tag">Google Search Console</div>
+      <div class="tool-tag red">GA4</div>
+      <div class="tool-tag">Google Looker Studio</div>
+      <div class="tool-tag blue">Meta Ads</div>
+      <div class="tool-tag">Google Merchant Center</div>
+      <div class="tool-tag red">Adobe Premiere Pro</div>
+      <div class="tool-tag">Photoshop</div>
+      <div class="tool-tag blue">Illustrator</div>
+      <div class="tool-tag">Canva Pro</div>
+      <div class="tool-tag red">Claude AI</div>
+      <div class="tool-tag">Page Speed / CWV</div>
+    </div>
+    <div class="tools-marquee tools-marquee2">
+      <div class="tool-tag">HTML / CSS</div>
+      <div class="tool-tag red">Schema Markup</div>
+      <div class="tool-tag blue">Core Web Vitals</div>
+      <div class="tool-tag">Email Marketing</div>
+      <div class="tool-tag red">Social Listening</div>
+      <div class="tool-tag">Moodle / LMS</div>
+      <div class="tool-tag blue">WordPress</div>
+      <div class="tool-tag">Landing Pages</div>
+      <div class="tool-tag red">Redacción SEO</div>
+      <div class="tool-tag">Análisis de Audiencias</div>
+      <div class="tool-tag blue">Branding Digital</div>
+      <div class="tool-tag">Logística E-commerce</div>
+      <!-- Loop -->
+      <div class="tool-tag">HTML / CSS</div>
+      <div class="tool-tag red">Schema Markup</div>
+      <div class="tool-tag blue">Core Web Vitals</div>
+      <div class="tool-tag">Email Marketing</div>
+      <div class="tool-tag red">Social Listening</div>
+      <div class="tool-tag">Moodle / LMS</div>
+      <div class="tool-tag blue">WordPress</div>
+      <div class="tool-tag">Landing Pages</div>
+      <div class="tool-tag red">Redacción SEO</div>
+      <div class="tool-tag">Análisis de Audiencias</div>
+      <div class="tool-tag blue">Branding Digital</div>
+      <div class="tool-tag">Logística E-commerce</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia">
+    <div class="section-header fade-in">
+      <span class="section-num">02</span>
+      <h2 class="section-title">EXPERIENCIA</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2026 — HOY</div>
+          <div class="exp-company">UCALP</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Profesor de Periodismo Digital</div>
+          <p class="exp-desc">Docente a cargo de la asignatura Periodismo Digital dentro de la Tecnicatura en Periodismo Deportivo en entornos virtuales de la Universidad Católica de La Plata.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2018 — HOY</div>
+          <div class="exp-company">TuCajaMisteriosa.com®</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Founder & Growth Manager</div>
+          <p class="exp-desc">E-commerce referente de Mystery Boxes en Argentina superando las 4.500 ventas. Despliegue técnico SEO con analítica web en GA4, Search Console y cuadros de mando en Looker Studio. Consolidación en los motores de búsqueda comerciales y de lenguaje natural generativo (AEO) mediante datos estructurados avanzados. Dirección de campañas publicitarias en Meta y procesos logísticos integrados.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2018 — HOY</div>
+          <div class="exp-company">Escuela María Teresa</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Docente de Comunicación</div>
+          <p class="exp-desc">Profesor titular de la materia Comunicación, Cultura y Sociedad orientada a alumnos de 5to año de educación secundaria, enfocando la agenda en pensamiento crítico frente a medios masivos e industrias culturales tecnológicas.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2012 — 2018</div>
+          <div class="exp-company">Red 92 — Cada Día Más</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Redactor & Community Manager</div>
+          <p class="exp-desc">Redacción y optimización de noticias digitales en tiempo real para el portal informativo del multimedio de mayor alcance radial en La Plata. Gestión de perfiles sociales, diseño de piezas gráficas fijas y edición de materiales audiovisuales promocionales.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2019</div>
+          <div class="exp-company">Ministerio de Educación de la Nación</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Profesor Virtual — UNESCO / Univ. Sarmiento</div>
+          <p class="exp-desc">Formador virtual en el trayecto de educación y tecnologías digitales emergentes enfocadas en la Inteligencia Artificial.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2014 — 2016</div>
+          <div class="exp-company">INFoD — Min. Educación</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Tutor Virtual Educativo</div>
+          <p class="exp-desc">Acompañamiento, tutoría especializada y corrección de contenidos pedagógicos digitales para postítulos nacionales docentes.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <div class="exp-meta">
+          <div class="exp-years">2012 — 2014</div>
+          <div class="exp-company">TV Universidad (UNLP) & UNQ TV</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Productor Audiovisual & Guionista</div>
+          <p class="exp-desc">Desarrollo de guiones técnicos y literarios para formatos de ficción y documentales. Guionista principal de "¿El fin justifica a los medios?" y encargado de producción de la serie de ficción "Primer Día".</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section id="educacion" style="background:var(--bg2);">
+    <div class="section-header fade-in">
+      <span class="section-num">03</span>
+      <h2 class="section-title">EDUCACIÓN</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card fade-in">
+        <div class="edu-year">2005 — 2010</div>
+        <div class="edu-title">Licenciado en Comunicación Social</div>
+        <div class="edu-inst">Universidad Nacional de Quilmes (UNQ)</div>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-year">2008 — 2012</div>
+        <div class="edu-title">Profesor de Comunicación Social</div>
+        <div class="edu-inst">Universidad Nacional de Quilmes (UNQ)</div>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-year">2018</div>
+        <div class="edu-title">Diplomado en Alfabetización Digital</div>
+        <div class="edu-inst">Universidad FASTA</div>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-year">2018</div>
+        <div class="edu-title">Publicidad Digital & SEO/SEM</div>
+        <div class="edu-inst">Asociación de Community Managers La Plata</div>
+      </div>
+    </div>
+
+    <!-- DISTINCIONES -->
+    <div style="margin-top:60px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:24px;" class="fade-in">04 — Reconocimientos</div>
+      <div class="awards-list">
+        <div class="award-item fade-in">
+          <div class="award-icon">🏅</div>
+          <div class="award-text"><strong>Ganador — Concurso Literario "Bicentenario" (2010)</strong><br>Municipalidad de La Plata · Primer premio en la categoría cuento de ficción adultos con la obra: "Instrucciones para morir".</div>
+        </div>
+        <div class="award-item fade-in">
+          <div class="award-icon">🏅</div>
+          <div class="award-text"><strong>Blog de Análisis "Diario 2011"</strong><br>Recomendado públicamente por el editor en jefe de Perfil.com y Revista Noticias. Migrado actualmente a infoasombrosa.blogspot.com.</div>
+        </div>
+        <div class="award-item fade-in">
+          <div class="award-icon">✦</div>
+          <div class="award-text"><strong>Nivel de Inglés B2</strong><br>Marco Común Europeo — Competencia Intermedia Avanzada (Upper-Intermediate).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact-section">
+    <div class="contact-big fade-in">
+      <div style="color:var(--text);">¿CREAMOS EL PRÓXIMO</div>
+      <span>PROYECTO JUNTOS?</span>
+    </div>
+    <p class="fade-in" style="font-size:16px;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.8;">Abierto a consultorías integrales de SEO/AEO, optimización de e-commerce, desarrollo de landing pages de alto rendimiento técnico y estrategias de marca digital. Basado en City Bell, La Plata.</p>
+    <div class="contact-links fade-in">
+      <a href="mailto:ezelavinia@gmail.com" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        ezelavinia@gmail.com
+      </a>
+      <a href="tel:+542216687123" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (+54) 221 668-7123
+      </a>
+      <a href="https://ezelavinia.my.canva.site/" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Portfolio Online
+      </a>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>© 2026 EZEQUIEL LAVINIA · CITY BELL, LA PLATA · ARGENTINA</p>
+    <p>DISEÑADO CON IMPACTO · ESTRUCTURADO PARA CONVERTIR</p>
+  </footer>
+
+  <script>
+    // Lógica inteligente de puntero personalizado (Desktop Only)
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    
+    if (window.matchMedia("(min-width: 901px)").matches) {
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      
+      document.addEventListener('mousemove', e => { 
+        mx = e.clientX; 
+        my = e.clientY; 
+      });
+      
+      function animateCursor() {
+        cursor.style.left = (mx - 6) + 'px';
+        cursor.style.top = (my - 6) + 'px';
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = (rx - 18) + 'px';
+        ring.style.top = (ry - 18) + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+      
+      document.querySelectorAll('a, button, .skill-chip, .exp-item, .edu-card').forEach(el => {
+        el.addEventListener('mouseenter', () => { 
+          cursor.style.transform = 'scale(2)'; 
+          ring.style.width = '60px'; 
+          ring.style.height = '60px'; 
+          ring.style.borderColor = 'rgba(247,79,79,0.6)';
+        });
+        el.addEventListener('mouseleave', () => { 
+          cursor.style.transform = 'scale(1)'; 
+          ring.style.width = '36px'; 
+          ring.style.height = '36px'; 
+          ring.style.borderColor = 'rgba(79,142,247,0.5)';
+        });
+      });
+    }
+
+    // Animación Fade-In mediante IntersectionObserver
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    faders.forEach(f => observer.observe(f));
+  </script>
+
+</body>
+</html>
